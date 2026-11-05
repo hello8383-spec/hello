@@ -1,0 +1,6 @@
+*.xcodeproj
+build/
+sdk_tmp/
+sdk.zip
+project-sdk.yml
+.DS_Store

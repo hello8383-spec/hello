@@ -50,7 +50,7 @@ final class AppState: ObservableObject {
             guard let self else { return }
             if let access, let refresh {
                 Keychain.set(access, for: "access"); Keychain.set(refresh, for: "refresh")
-                self.bridge?.connectWithAccessToken(access)
+                self.bridge?.connect(withAccessToken: access)
             } else { self.authError = error ?? "Sign-in failed" }
         }
     }
@@ -63,11 +63,11 @@ final class AppState: ObservableObject {
 
     private func restoreSession() {
         guard let refresh = Keychain.get("refresh") else { return }
-        bridge?.refreshWithToken(refresh) { [weak self] access, newRefresh, error in
+        bridge?.refresh(withToken: refresh) { [weak self] access, newRefresh, error in
             guard let self else { return }
             if let access, let newRefresh {
                 Keychain.set(access, for: "access"); Keychain.set(newRefresh, for: "refresh")
-                self.bridge?.connectWithAccessToken(access)
+                self.bridge?.connect(withAccessToken: access)
             } else { self.authError = error }
         }
     }

@@ -1,7 +1,16 @@
-# GestaltX
+# hello ← GestaltX import
 
-A MobileGestalt editor for iPhone and iPad. Developed by [huamidev](https://github.com/huamidev).
+The previous YTPlusRPC project files were removed from this repository.
 
-Imported into `hello8383-spec/hello` from [GestaltX](https://github.com/hello8383-spec/GestaltX).
+To make this repo an **exact** copy of [GestaltX](https://github.com/hello8383-spec/GestaltX), run this on your machine (requires write access):
 
-See full README in the source GestaltX repository for features, compatibility, and credits.
+```bash
+git clone https://github.com/hello8383-spec/GestaltX.git gx-tmp
+cd gx-tmp
+git remote set-url origin https://github.com/hello8383-spec/hello.git
+git push -u origin main --force
+```
+
+That force-pushes the full GestaltX tree (sources, assets, xcodeproj, localization, tests) into `hello`.
+
+Alternatively, in GitHub UI: delete this `hello` repo, then rename `GestaltX` → `hello` under **Settings → General → Repository name**.
